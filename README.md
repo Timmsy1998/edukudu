@@ -12,7 +12,7 @@ To set up the project, follow these steps:
     ```
 2. **Navigate to the Project Directory:**
     ```bash
-        cd eddukudu
+        cd edukudu
     ```
 3. **Install Dependencies:**
     ```bash
