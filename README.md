@@ -45,3 +45,8 @@ To set up the project, follow these steps:
 - Create a page with two text boxes and a preview area
 - One text box is for HTML code, and the other is for LESS code
 - The LESS code should be compiled in real-time and scoped to the preview area
+
+**Explanation of Method:**
+- **Reactive Data:** `htmlCode` and `lessCode` are defined as reactive references using `ref()`. This allows the component to reactively update the preview when the user inputs new HTML or LESS code. `compiledHtml` is a computed property that directly reflects the `htmlCode` input, ensuring that the preview div always displays the latest HTML code.
+- **Watching for Changes:** The `watch` function is used to monitor changes to `lessCode`. Whenever the LESS code changes, the `less.render` function is called to compile the LESS code into CSS. If the compilation is successful, a new `<style>` element is created and appended to the document head. This ensures that the compiled CSS is applied globally to the document, including the preview div.
+- **Immediate Watcher:** The `{ immediate: true }` option ensures that the watcher runs immediately when the component is mounted. This is useful for initializing the preview with any existing LESS code.
